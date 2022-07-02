@@ -1,0 +1,6 @@
+
+用cnpm 下载,主要用下面这两个插件
+cnpm install amfe-flexible --save
+cnpm install postcss-pxtorem --save
+详解自己博客
+https://blog.csdn.net/m0_49714202/article/details/125560615?spm=1001.2014.3001.5502
