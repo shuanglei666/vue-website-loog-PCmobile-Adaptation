@@ -6,6 +6,12 @@
       <div class="logo">
         <img src="../../assets/images/LOOG.png">
       </div>
+      <!-- <div class="list_box">
+        <div v-for="(item,index) in title_list" :key="item.id" :value='item.title' @click="jump(index)" class="list1"
+          :class="{list2:index == num}">
+          {{item.title}}
+        </div>
+      </div> -->
       <div class="list_box">
         <div v-for="(item,index) in title_list" :key="item.id" :value='item.title' @click="jump(index)" class="list1"
           :class="{list2:index == num}">
@@ -35,12 +41,20 @@
           <!-- <img src="../../assets/images/LOOG.png"> -->
         </div>
         <div class="main_media_right">
-          <div class="main_media_right_right">
+          <div class="main_media_right_right" @click="Login">
           </div>
-          <div class="main_media_right_left" @click="getShow">
+          <!-- <div class="main_media_right_left" @click="getShow">
+          </div> -->
+          <!-- 图片按钮1 -->
+          <!-- <div class="main_media_right_left" @click="getShow" style="margin-right:100px">
+          </div> -->
+
+          <!-- 图片按钮2  弹窗-->
+          <div @click="getshadow" class="main_media_right_left">
           </div>
         </div>
       </div>
+      <!-- 目录1 -->
       <div class="main_media_catalogue" v-show="show">
         <div class="main_media_catalogue_top"></div>
         <!-- 下面目栏 -->
@@ -76,10 +90,16 @@
         </div>
       </div>
     </div>
+
+    <!-- <div class="mask" v-if="showModal" @click="showModal=false"></div> -->
+    <!-- <div class="pop" v-if="showModal">
+      内容区域
+    </div> -->
   </div>
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
   data () {
     return {
@@ -90,7 +110,8 @@ export default {
       num: 0,
       show: false,
       selLocale: this.$i18n.locale,
-      flag: false,
+      flag: true,
+      showModal: false,
     };
   },
   computed: {
@@ -100,7 +121,6 @@ export default {
   },
   methods: {
     jump (index) {
-      console.log(index, 'index');
       this.num = index;
       var items = document.querySelectorAll(".scroll-item");
       for (var i = 0; i < items.length; i++) {
@@ -114,10 +134,22 @@ export default {
     },
     getShow () {
       this.show = !this.show
+      this.logFlag = !this.logFlag
     },
     getLang (lang) {
       this.selLocale = lang
       // console.log(lang,'lang');
+
+      if (lang === 'zh') {
+        this.flag = false
+        // console.log(lang, 'lang    false');
+        // localStorage.getItem('zh',lang)
+      } else if (lang === 'en') {
+        this.flag = true
+        // console.log(lang, 'lang    true');
+        // localStorage.getItem('en',lang)
+      }
+      localStorage.getItem("language", lang);
     },
     setMenu () {
       this.title_list = [
@@ -129,10 +161,27 @@ export default {
         { title: this.$t('Home.Mytitle.Shop'), active: false },
         { title: this.$t('Home.Mytitle.Pages'), active: false },
       ]
-    }
+    },
+    Login () { },
+    getshadow (e) {
+      this.showModal = true;
+      this.$emit('myEven', this.showModal)
+
+      // 禁用滚动条
+      // $('body').css("overflow-y", "hidden");
+      $('body,html').css('overflow', 'hidden')      // 打开滚动条
+    },
   },
   mounted () {
     // console.log(this.language, 'language');
+    let lang = localStorage.getItem("language");
+    if (lang === 'zh') {
+      this.flag = false
+      // console.log(lang, 'lang false');
+    } else if (lang === 'en') {
+      this.flag = true
+      // console.log(lang, 'lang true');
+    }
     window.addEventListener("scroll", () => {
       this.top =
         document.documentElement.scrollTop ||
@@ -140,9 +189,9 @@ export default {
         window.pageYOffset;
     });
 
-    console.log(this.selLocale)
+    // console.log(this.selLocale, 'mounted')
     //debugger
-    this.setMenu()
+    this.setMenu();
   },
   watch: {
     top (newValue, oldValue) {
@@ -154,11 +203,11 @@ export default {
     },
     selLocale: {
       handler (newValue) {
-        this.flag = !this.flag
+        // localStorage.setItem("language", newValue);
         this.$i18n.locale = newValue;
-        localStorage.setItem("language", newValue);
         if (newValue) {
-          console.log(newValue, 'val');
+          localStorage.setItem("language", newValue);
+          // console.log(newValue, 'val');
           this.setMenu()
           // this.title_list = [
           //   { title: this.$t('Home.Mytitle.Home'), active: true },
@@ -249,34 +298,29 @@ export default {
   backface-visibility: hidden;
   position: relative;
   // display: inline-block;
+  // border: 1px solid #fff;
 }
-// .list1:hover {
-//   box-sizing: content-box;
-//   border-bottom: 1px solid #000;
-//   font-family: MicrosoftYaHei;
-//   font-size: 18px;
-//   line-height: 30px;
-//   letter-spacing: 0px;
-//   color: #000000;
-// }
 // start
+// 移入border
 .list1:after {
   content: '';
   position: absolute;
   top: 100%;
   left: 50%;
   width: 0;
-  height: 1px;
-  background: #3c2d2d;
+  // height: 1px;
+  // background: #000;
+  border-bottom: 1px solid #000;
+  transition: all 0.2s;
 }
 .list1:hover:after {
   left: 0;
-  transition: all 0.5s;
   width: 100%;
 }
 // end
-
+// 选中border
 .list2 {
+  height: 102%; // 防止border重叠
   box-sizing: content-box;
   border-bottom: 1px solid #000;
   font-family: MicrosoftYaHei;
@@ -284,7 +328,6 @@ export default {
   font-weight: normal;
   line-height: 30px;
   letter-spacing: 0px;
-  /* Mono/Black */
   color: #000000;
 }
 .iconList {
@@ -337,7 +380,7 @@ export default {
   .langSpan1 {
     font-family: MicrosoftYaHei-Bold;
     font-size: 13px;
-    font-weight: bold;
+    // font-weight: normal;
     // line-height: 20px;
     letter-spacing: 0px;
     /* Mono/01 */
@@ -347,7 +390,7 @@ export default {
   .langSpan2 {
     font-family: MicrosoftYaHei;
     font-size: 13px;
-    font-weight: normal;
+    font-weight: bold;
     // line-height: 20px;
     letter-spacing: 0px;
     /* Mono/01 */
@@ -397,9 +440,11 @@ export default {
           width: 24px;
           height: 20px;
           margin-right: 30px;
+          // margin-right: 40px;
           background-image: url(../../assets/images/wallet.png);
           background-size: 100% 100%;
           background-repeat: no-repeat;
+          // pointer-events: none;
         }
         .main_media_right_left {
           width: 28px;
@@ -407,19 +452,28 @@ export default {
           background-image: url(../../assets/images/three.png);
           background-size: 100% 100%;
           background-repeat: no-repeat;
+          // border: 1px solid red;
+          overflow: hidden;
         }
       }
     }
     // 目录
     .main_media_catalogue {
-      position: absolute;
+      // position: absolute;
+      // top: 55px;
+      // right: 25px;
+      // border: 1px solid salmon;
+      // width: 200px;
+      // height: 720px;
+      // background: #fafafa;
+      position: fixed;
       top: 55px;
-      right: 17px;
+      right: 0;
+      z-index: 999;
       // border: 1px solid salmon;
       width: 200px;
-      height: 698px;
+      height: 720px;
       background: #fafafa;
-      z-index: 999;
       .main_media_catalogue_top {
         height: 18px;
       }
@@ -484,6 +538,33 @@ export default {
     }
   }
 }
+
+.mask {
+  background-color: #000;
+  opacity: 0.3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+}
+.pop {
+  width: 200px;
+  height: 680px;
+  background-color: #fff;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 201;
+  // border: 1px solid red;
+}
+// .btn {
+//   background-color: #fff;
+//   border-radius: 4px;
+//   border: 1px solid blue;
+//   padding: 4px 12px;
+// }
 
 // 超过1600的隐藏内容样式设置
 @media screen and (min-width: 1600px) {

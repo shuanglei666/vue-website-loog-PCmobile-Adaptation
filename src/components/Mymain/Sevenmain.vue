@@ -16,7 +16,7 @@
             </div>
           </div>
           <div class="seven_top_list">
-            <div class="seven_top_list_top" style="margin-left:20px;">——————</div>
+            <div class="seven_top_list_top seven_top_list_top2">——————</div>
             <div class="seven_top_list_box">
               <div class=" seven_top_list_box_img2"></div>
               <div class="seven_top_list_box_txt">
@@ -133,7 +133,8 @@
 <style lang="less" scoped>
 .seven {
   width: 100%;
-  height: 1052px;
+  // height: 1052px;
+  // height: 900px;
   // border-top: 1px solid #a7e4ff;
   white-space: normal;
   flex-direction: column;
@@ -154,12 +155,13 @@
     background-repeat: no-repeat;
     background-position: 0px 120px;
     position: relative;
-    top: 100px;
+    top: 90px;
     // padding-left: 16px;
     // padding-right: 16px;
     box-sizing: content-box;
     margin-left: auto;
     margin-right: auto;
+    // margin-top: 160px;
     .seven_top {
       width: 100%;
       justify-content: space-between;
@@ -183,6 +185,9 @@
           /* Mono/Black */
           color: #000000;
         }
+        .seven_top_list_top2 {
+          margin-left: 20px;
+        }
         .seven_top_list_box {
           margin-top: 38px;
           width: 221px;
@@ -201,10 +206,10 @@
             background-size: 100% 100%;
             background-repeat: no-repeat;
             overflow: hidden;
+            transition: all 0.6s;
           }
           .seven_top_list_box_img:hover {
             cursor: pointer;
-            transition: all 0.6s;
             transform: scale(1.1);
           }
           .seven_top_list_box_img2 {
@@ -214,10 +219,10 @@
             background-image: url('../../assets/images/seven2.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
+            transition: all 0.6s;
           }
           .seven_top_list_box_img2:hover {
             cursor: pointer;
-            transition: all 0.6s;
             transform: scale(1.1);
           }
           .seven_top_list_box_img3 {
@@ -227,10 +232,10 @@
             background-image: url('../../assets/images/seven3.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
+            transition: all 0.6s;
           }
           .seven_top_list_box_img3:hover {
             cursor: pointer;
-            transition: all 0.6s;
             transform: scale(1.1);
           }
           .seven_top_list_box_txt {
@@ -295,10 +300,10 @@
             background-image: url('../../assets/images/seven4.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
+            transition: all 0.6s;
           }
           .seven_bottom_list_box_img:hover {
             cursor: pointer;
-            transition: all 0.6s;
             transform: scale(1.1);
           }
           .seven_bottom_list_box_img2 {
@@ -308,10 +313,10 @@
             background-image: url('../../assets/images/seven5.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
+            transition: all 0.6s;
           }
           .seven_bottom_list_box_img2:hover {
             cursor: pointer;
-            transition: all 0.6s;
             transform: scale(1.1);
           }
           .seven_bottom_list_box_img3 {
@@ -321,10 +326,10 @@
             background-image: url('../../assets/images/seven6.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
+            transition: all 0.6s;
           }
           .seven_bottom_list_box_img3:hover {
             cursor: pointer;
-            transition: all 0.6s;
             transform: scale(1.1);
           }
           .seven_bottom_list_box_txt {
@@ -391,6 +396,7 @@
     .seven_media_bdr {
       width: 125px;
       border-bottom: 5px solid #000;
+      margin-top: 5px;
     }
     .seven_media_box {
       // border: 1px solid pink;
@@ -424,10 +430,10 @@
             background-size: 100% 100%;
             background-repeat: no-repeat;
             overflow: hidden;
+            transition: all 0.6s;
           }
           .seven_media_box_top_list_img:hover {
             cursor: pointer;
-            transition: all 0.6s;
             transform: scale(1.1);
           }
           .seven_media_box_top_list_img2 {
@@ -493,10 +499,10 @@
             background-image: url('../../assets/images/seven4.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
+            transition: all 0.6s;
           }
           .seven_media_box_bottom_list_img4:hover {
             cursor: pointer;
-            transition: all 0.6s;
             transform: scale(1.1);
           }
           .seven_media_box_bottom_list_img5 {

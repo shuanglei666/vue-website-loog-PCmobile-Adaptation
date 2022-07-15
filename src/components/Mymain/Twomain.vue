@@ -46,6 +46,7 @@
         <div class="main_left_custam2"></div>
       </div>
     </div>
+
   </div>
 </template>
 <script>
@@ -76,11 +77,12 @@ export default {
 .main {
   width: 100%;
   // height: 833px;
+  // height: 800px;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
   display: flex;
-  // border-top: 1px solid #e0e0e0;
+  // border-bottom: 1px solid #5f16d4;
   .main_box {
     width: 1200px;
     // border: 1px solid plum;
@@ -92,7 +94,7 @@ export default {
     background-size: 100% 40%;
     background-repeat: no-repeat;
     position: relative;
-    top: 100px;
+    top: 110px;
     // padding-left: 16px;
     // padding-right: 16px;
     box-sizing: content-box;
@@ -141,7 +143,10 @@ export default {
         width: 205px;
         height: 255px;
         box-shadow: 0px 16px 80px 0px rgba(51, 51, 51, 0.12);
-        background: #a7e4ff;
+        background-image: url('../../assets/images/custam1.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        // background: #a7e4ff;
         position: absolute;
         left: 242px;
         top: 50px;
@@ -229,6 +234,10 @@ export default {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          // 按钮过渡动画
+          transition-property: all;
+          transition-duration: 0.5s;
+          transition-timing-function: linear;
           span {
             font-family: MicrosoftYaHeiLight;
             font-size: 16px;
@@ -249,10 +258,6 @@ export default {
           text-align: center;
           line-height: 3;
           cursor: pointer;
-          // 按钮过渡动画
-          transition-property: all;
-          transition-duration: 1s;
-          transition-timing-function: linear;
           span {
             font-family: MicrosoftYaHeiLight;
             font-size: 16px;
@@ -305,6 +310,11 @@ export default {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          // 按钮过渡动画
+          // background-color: rgb(1, 187, 204);
+          transition-property: all;
+          transition-duration: 0.5s;
+          transition-timing-function: linear;
           span {
             font-family: MicrosoftYaHeiLight;
             font-size: 16px;
@@ -324,12 +334,6 @@ export default {
           text-align: center;
           line-height: 3;
           cursor: pointer;
-          // 按钮过渡动画
-          // background-color: rgb(1, 187, 204);
-          transition-property: all;
-          transition-duration: 1s;
-          transition-timing-function: linear;
-
           span {
             font-family: MicrosoftYaHeiLight;
             font-size: 16px;
@@ -393,6 +397,8 @@ export default {
   }
   .two_media {
     // border: 1px solid magenta;
+    position: relative;
+    top: 10px;
     width: 700px;
     box-sizing: content-box;
     margin-left: auto;
@@ -415,7 +421,7 @@ export default {
       .two_media_top_bdr {
         width: 134px;
         border-bottom: 5px solid #000;
-        margin: 5px auto;
+        margin: 15px auto;
       }
     }
     .two_media2 {
@@ -471,8 +477,6 @@ export default {
         background-size: 100% 100%;
         background-repeat: no-repeat;
         position: absolute;
-        // top: 100px;
-        // left: 21px;
         margin-top: 172px;
         transition: all 0.5s;
         cursor: pointer;
@@ -485,7 +489,11 @@ export default {
         width: 304px;
         height: 378px;
         box-shadow: 0px 16px 80px 0px rgba(51, 51, 51, 0.12);
-        background: #a7e4ff;
+        // background: #a7e4ff;
+        box-shadow: 0px 16px 80px 0px rgba(51, 51, 51, 0.12);
+        background-image: url('../../assets/images/custam1.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
         position: absolute;
         // left: 242px;
         // top: 50px;

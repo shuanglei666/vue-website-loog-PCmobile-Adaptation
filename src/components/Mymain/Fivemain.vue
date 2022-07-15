@@ -44,7 +44,6 @@
           <div class="five_right_ctr">
             <!-- <img src="../../assets/images/five_yuan.png" alt=""> -->
             <!-- swiper -->
-
             <div class="swiper-container swiper-no-swiping">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -95,7 +94,8 @@ export default {
 <style lang="less" scoped>
 .five {
   width: 100%;
-  height: 851px;
+  // height: 851px;
+  // height: 500px;
   // border-top: 1px solid #a7e4ff;
   justify-content: space-between;
   align-items: center;
@@ -115,7 +115,7 @@ export default {
     background-repeat: no-repeat;
     background-position: 0px 145px;
     position: relative;
-    top: 150px;
+    top: 145px;
     // padding-left: 16px;
     // padding-right: 16px;
     box-sizing: content-box;
@@ -139,7 +139,7 @@ export default {
       }
       .five_left_bdr {
         width: 134px;
-        border-bottom: 2px solid #000;
+        border-bottom: 3px solid #000;
         padding-top: 24px;
       }
       .five_left_swiper {

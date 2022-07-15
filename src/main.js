@@ -27,6 +27,8 @@ const i18n = new VueI18n({
   },
    silentTranslationWarn: true,
 })
+import jquery from "jquery";
+Vue.prototype.$ = jquery;
 
 new Vue({
   router,

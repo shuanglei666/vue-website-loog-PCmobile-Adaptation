@@ -7,14 +7,14 @@
         <div class="six_box_top">
           <div class="six_box_top_tit">{{$t('Home.Sixmain.ServiceWeProvide')}}</div>
           <div class="six_box_top_txt">
-            <div class="six_box_top_txt_radius"></div>
+            <div class="six_box_top_txt_radius1 "></div>
             <div class="span">{{$t('Home.Sixmain.WeHave')}}</div>
-            <div class="six_box_top_txt_radius"></div>
+            <div class="six_box_top_txt_radius2"></div>
           </div>
         </div>
         <!-- 中 -->
         <div class="six_box_ctr">
-          <div class="six_box_ctr_left">
+          <div class="six_box_ctr_left six_box_ctr_left2">
             <div class="six_box_ctr_left_list">
               <div class="six_box_ctr_left_list_date">
                 2026 / 06 / 22
@@ -46,8 +46,8 @@
         <!-- 下 -->
         <div class="six_box_btm">
           <!-- 1 -->
-          <div class="six_box_btm_list">
-            <div class="six_box_btm_list_img"></div>
+          <div class="six_box_btm_list six_box_btm_list2">
+            <div class="six_box_btm_list_img six_box_btm_list_img1"></div>
             <div class="six_box_btm_list_tit">
               2026 / 06 / 22
             </div>
@@ -59,7 +59,7 @@
             </div>
           </div>
           <!-- 2 -->
-          <div class="six_box_btm_list">
+          <div class="six_box_btm_list six_box_btm_list2">
             <div class="six_box_btm_list_img six_box_btm_list_img2"></div>
             <div class="six_box_btm_list_tit">
               2026 / 06 / 22
@@ -483,7 +483,8 @@ export default {
 <style lang="less" scoped>
 .six {
   width: 100%;
-  height: 915px;
+  // height: 915px;
+  height: 750px;
   // border-top: 1px solid #a7e4ff;
   .six_box {
     width: 1200px;
@@ -499,7 +500,8 @@ export default {
     background-repeat: no-repeat;
     background-position: 0px 180px;
     position: relative;
-    top: 40px;
+    // top: 40px;
+    // margin-top: 216px;
     // padding-left: 16px;
     // padding-right: 16px;
     box-sizing: content-box;
@@ -514,7 +516,7 @@ export default {
         font-family: MicrosoftYaHei;
         font-size: 26px;
         font-weight: normal;
-        line-height: 52.8px;
+        // line-height: 52.8px;
         letter-spacing: 0px;
         /* 外部/Black */
         color: #000000;
@@ -526,13 +528,22 @@ export default {
         // align-items: center;
         flex-direction: row;
         margin-top: 11.2px;
-        .six_box_top_txt_radius {
+        .six_box_top_txt_radius1 {
           width: 6px;
           height: 6px;
           background: #000000;
           border-radius: 50%;
           position: relative;
-          top: 11px;
+          top: 9px;
+        }
+        .six_box_top_txt_radius2 {
+          width: 6px;
+          height: 6px;
+          background: #000000;
+          border-radius: 50%;
+          position: relative;
+          // bottom: 20px;
+          top: 10px;
         }
         .span {
           padding: 0 5px;
@@ -551,8 +562,9 @@ export default {
       margin-top: 129.8px;
       display: flex;
       flex-direction: row;
+
       .six_box_ctr_left {
-        width: 50%;
+        width: 49%;
         display: flex;
         flex-direction: row-reverse;
         .six_box_ctr_left_list {
@@ -596,6 +608,10 @@ export default {
             top: 30px;
           }
         }
+      }
+      .six_box_ctr_left2{
+        position: relative;
+        left: 11px;
       }
       .six_box_ctr_right {
         width: 50%;
@@ -664,6 +680,10 @@ export default {
           background-repeat: no-repeat;
           margin: 0 auto;
         }
+        .six_box_btm_list_img1{
+          position: relative;
+          left: 2px;
+        }
         .six_box_btm_list_tit {
           font-family: MicrosoftYaHei;
           font-size: 24px;
@@ -702,15 +722,26 @@ export default {
           margin: 0 auto;
         }
       }
+      .six_box_btm_list2{
+        position: relative;
+        left: 2px;
+        .six_box_btm_list_txt{
+          position: relative;
+          top: 3px;
+        }
+      }
     }
   }
   .six_box_bdr {
     width: 100%;
     border-bottom: 1px dashed #143a79;
     position: relative;
-    bottom: 221px;
+    // bottom: 221px;
+    bottom: 180px;
+    // top: 60px;
     .six_box_bdr_radius {
-      width: 858px;
+      // width: 858px;
+      width: 850px;
       display: flex;
       margin: 0 auto;
       flex-direction: row;
@@ -721,7 +752,8 @@ export default {
         border: 1px solid #143a79;
         border-radius: 50%;
         position: relative;
-        top: 8px;
+        top: 9px;
+        // top: 240px;
         background: none;
         z-index: 99;
         background: #fff;
@@ -763,7 +795,8 @@ export default {
     }
     .six_media_bdr {
       width: 134px;
-      margin-top: 14.2px;
+      // margin-top: 14.2px;
+      margin-top: 15px;
       border-bottom: 5px solid #000;
     }
     // 上面轮播图
@@ -1026,7 +1059,7 @@ export default {
               }
             }
             .Sixmain2_box_left_list2 {
-              margin-top: 210px;
+              margin-top: 230px;
             }
           }
           // 中间
@@ -1047,7 +1080,7 @@ export default {
                 right: 13px;
                 bottom: 45px;
                 .Sixmain2_box_center_bdr_box_list {
-                  margin-top: 145px;
+                  margin-top: 140px;
                   flex-direction: column;
                   display: flex;
                   .Sixmain2_box_center_bdr_img1 {

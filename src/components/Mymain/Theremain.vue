@@ -1,7 +1,7 @@
 <template>
   <div class="scroll-item">
     <!-- pc layout -->
-    <div class="main">
+    <div class="three">
       <div class="main_box">
         <div class="main_left">
           <div class="main_left_tit">
@@ -196,14 +196,16 @@
   </div>
 </template>
 <style lang="less" scoped>
-.main {
+.three {
   min-width: 100%;
   // border-top: 1px solid #a7e4ff;
   white-space: normal;
   // position: absolute;
+  // height: 924px;
+  // height: 700px;
   .main_box {
     width: 1200px;
-    height: 100%;
+    // height: 100%;
     // border: 1px solid orange;
     // margin: 0 auto;
     justify-content: space-between;
@@ -213,14 +215,15 @@
     background-image: url('../../assets/images/loog_bg.png');
     background-size: 100% 40%;
     background-repeat: no-repeat;
-    position: relative;
-    top: 100px;
+    // top: 10px;
     // padding-left: 16px;
     // padding-right: 16px;
     box-sizing: content-box;
     margin-left: auto;
     margin-right: auto;
     // overflow: hidden;
+    position: relative;
+    top: 60px;
     // 左边
     .main_left {
       width: 36%;
@@ -237,7 +240,7 @@
       }
       .main_left_bdr {
         width: 134px;
-        border-bottom: 2px solid #000;
+        border-bottom: 3px solid #000;
       }
       .main_left_subtit {
         padding-top: 39px;
@@ -322,6 +325,8 @@
       // border: 1px solid aqua;
       flex-direction: column;
       display: flex;
+      position: relative;
+      top: 20px;
       // 上
       .main_right_top {
         flex-direction: row;
@@ -435,7 +440,7 @@
 
 // 设置 小于755内容样式
 @media screen and (max-width: 1600px) {
-  .main {
+  .three {
     display: none !important;
   }
   .three_media {

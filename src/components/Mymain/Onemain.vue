@@ -118,6 +118,9 @@ export default {
     get3 () {
       this.flag3 = !this.flag3
     }
+  },
+  mounted () {
+    // console.log(this.$props,'props'); 
   }
 }
 </script>
@@ -144,45 +147,61 @@ export default {
     padding-top: 48px;
     // 左边
     .one_box_left {
+      margin-top: 26px;
       width: 38%;
-      height: 513px;
+      height: 490px;
+      // border: 1px solid red;
       flex-direction: column;
       display: flex;
       justify-content: space-between;
       .one_box_left_tit {
+        margin-top: 26px;
         font-family: MicrosoftYaHei;
         font-size: 50px;
         font-weight: normal;
-        line-height: 62px;
+        line-height: 50px;
         letter-spacing: 0px;
         /* Dark */
         color: #292830;
-        margin-top: 25px;
-        padding-bottom: 4px;
+        // margin-top: 25px;
+        padding-bottom: 10px;
       }
       .bdr1 {
         width: 294px;
-        border-top: 2px solid #000;
-        margin-top: 5px;
+        height: 2px;
+        background: #000;
+        // border-top: 2px solid #000;
+        margin-top: 10px;
+        // position: relative;
+        // top: 5px;
+        flex-shrink: 0;
+        flex-grow: 0;
       }
       .one_box_left_subtit {
+        margin-top: 10px;
         font-family: MicrosoftYaHei;
         font-size: 26px;
         font-weight: normal;
-        line-height: 60px;
+        // line-height: 60px;
+        line-height: 30px;
         letter-spacing: 0px;
         /* Mono/Black */
         color: #000000;
       }
       .bdr2 {
         width: 153px;
-        border-top: 2px solid #000;
+        // border-top: 2px solid #000;
+        height: 2px;
+        background: #000;
+        margin-top: 10px;
+        flex-shrink: 0;
+        flex-grow: 0;
       }
       .wehave {
         flex-direction: row;
         display: flex;
         align-items: center;
-        margin-top: 30px;
+        margin-top: 44px;
         .wehave_radius {
           width: 4.58px;
           height: 4.58px;
@@ -203,7 +222,7 @@ export default {
       .one_box_left_txt {
         display: flex;
         flex-direction: column;
-        margin-top: 15px;
+        margin-top: 18px;
         .one_box_left_txt_span {
           width: 65%;
           font-family: MicrosoftYaHeiLight;
@@ -220,7 +239,7 @@ export default {
         flex-direction: row;
         justify-content: space-between;
         display: flex;
-        margin-top: 29px;
+        // margin-top: 29px;
         .one_box_left_btn1 {
           width: 128px;
           height: 42px;
@@ -237,6 +256,11 @@ export default {
           align-items: center;
           flex-direction: column;
           cursor: pointer;
+          // 按钮过渡动画
+          // background-color: rgb(1, 187, 204);
+          transition-property: all;
+          transition-duration: 0.5s;
+          transition-timing-function: linear;
           span {
             font-family: MicrosoftYaHei;
             font-size: 12px;
@@ -252,6 +276,8 @@ export default {
           background: #143a79;
           box-shadow: 0px 30px 40px 0px rgba(212, 217, 232, 0.1);
           cursor: pointer;
+          box-sizing: border-box;
+
           span {
             font-family: MicrosoftYaHei;
             font-size: 12px;
@@ -303,7 +329,8 @@ export default {
     position: absolute;
     z-index: 5;
     right: 50%;
-    top: 380px;
+    // top: 380px;
+    top: 240px;
     margin-right: 645px;
     z-index: -999;
   }
@@ -414,9 +441,13 @@ export default {
         padding-top: 40px;
       }
       .one_media_head_btn {
-        width: auto;
+        // width: auto;
+        // flex-direction: row;
+        // display: flex;
+        // width: 90%;
         flex-direction: row;
         display: flex;
+        // justify-content: space-between;
         margin-top: 106px;
         .one_media_head_btn1 {
           width: 185px;
@@ -469,6 +500,7 @@ export default {
         }
         .one_media_head5_bottom {
           // width: 564px;
+          width: 90%;
           text-align: center;
           margin-right: auto;
           margin-left: auto;

@@ -197,7 +197,7 @@ export default {
         if (top <= 0) {
           clearInterval(timeTop);
         }
-      }, 10);
+      }, 1);
     },
   },
   watch: {
@@ -220,8 +220,10 @@ export default {
 <style lang="less" scoped>
 .footer {
   width: 100%;
-  height: 566px;
-  //   border: 1px solid red;
+  // height: 566px;
+    // border: 1px solid red;
+  // margin-top: 213px;
+  padding-bottom: 140px;
   justify-content: center;
   flex-direction: column;
   display: flex;
@@ -531,7 +533,7 @@ export default {
             flex-direction: column;
             display: flex;
             .footer_media_right_bottom_box_top {
-              width: 100%;
+              width: 80%;
               display: flex;
               flex-direction: row;
               justify-content: space-between;
@@ -544,8 +546,9 @@ export default {
               }
             }
             .footer_media_right_bottom_box_bottom {
-              margin-top: 53px;
-              width: 70%;
+              // margin-top: 53px;
+              margin-top: 20px;
+              width: 58%;
               display: flex;
               flex-direction: row;
               justify-content: space-between;

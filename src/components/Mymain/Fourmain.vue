@@ -95,7 +95,7 @@
         <div class="swiper" id="mySwiperFourmain">
           <div class="swiper-wrapper">
             <!-- 第一个 -->
-            <div class="swiper-slide">
+            <div class="swiper-slide swiper-slide1">
               <div class="swiper-slide">
                 <div class="four_count">
                   <div class="four_list">
@@ -119,7 +119,7 @@
               </div>
             </div>
             <!-- 第二个 -->
-            <div class="swiper-slide">
+            <div class="swiper-slide swiper-slide1">
               <div class="swiper-slide">
                 <div class="four_count">
                   <div class="four_list">
@@ -143,7 +143,7 @@
               </div>
             </div>
             <!-- 第三个 -->
-            <div class="swiper-slide">
+            <div class="swiper-slide swiper-slide1">
               <div class="swiper-slide">
                 <div class="four_count">
                   <div class="four_list">
@@ -175,6 +175,7 @@
 </template>
 <script>
 import Swiper from 'swiper'
+import $ from 'jquery'
 export default {
   mounted () {
     this.getInfor();
@@ -182,8 +183,7 @@ export default {
   methods: {
     getInfor () {
       this.$nextTick(() => {
-        // setTimeout(() => {
-        new Swiper("#mySwiperFourmain", {
+        const swiper = new Swiper("#mySwiperFourmain", {
           // slidesPerView: 2.2,
           // spaceBetween: 20,
           slidesPerView: 2.1,
@@ -197,9 +197,17 @@ export default {
             clickable: true,
           },
         });
-        // }, 10)
+        swiper.on('click', function (touchend) {
+          var divs = $('.swiper-slide1'); // index为指定将要切换到的slide的索引
+          for (var i = 0, lens = divs.length; i < lens; i++) {
+            divs[i].index = i;
+            $(divs[i]).click(function () {
+              swiper.slideTo(this.index, 1000, false);//切换到第一个slide，速度为1秒
+            });
+          };
+        });
       })
-    },
+    },//11
   }
 };
 </script>
@@ -207,8 +215,9 @@ export default {
 // PC
 .four {
   width: 100%;
-  height: 851px;
-  // border-top: 1px solid #a7e4ff;
+  // height: 851px;
+  // height: 800px;
+  // border-top: 1px solid #ac0883;
   white-space: normal;
   flex-direction: column;
   display: flex;
@@ -225,7 +234,7 @@ export default {
     background-size: 100% 40%;
     background-repeat: no-repeat;
     position: relative;
-    top: 160px;
+    top: 70px;
     // padding-left: 16px;
     // padding-right: 16px;
     box-sizing: content-box;
@@ -246,7 +255,7 @@ export default {
         /* Dark */
         color: #292830;
         .four_tit_lft_bdr {
-          border-bottom: 2px solid #000000;
+          border-bottom: 3px solid #000000;
           width: 134px;
           padding-top: 29px;
         }
@@ -259,6 +268,8 @@ export default {
         line-height: 34px;
         letter-spacing: 0px;
         color: #3e3e3e;
+        position: relative;
+        top: 23px;
       }
     }
     // 三个盒子
@@ -330,11 +341,14 @@ export default {
       .four_count:hover .img_arrow {
         margin-left: 18px;
       }
-      .four_count:hover .four_list_bottom {
+
+      .four_count .four_list_bottom {
+        // 新加
         transition: all 0.2s linear;
+      }
+      .four_count:hover .four_list_bottom {
         transform: translateX(172px);
       }
-
       .four_list_top {
         text-align: center;
         display: flex;
@@ -342,7 +356,11 @@ export default {
         align-items: center;
         justify-content: center;
       }
-      .four_list:hover .four_list_top {
+      .four_count .four_list_top {
+        // 新加
+        transition: transform 0.1s ease 0.1s;
+      }
+      .four_count:hover .four_list_top {
         transform: translate(0px, -10px);
         transition: transform 0.1s ease 0.1s;
       }
@@ -462,6 +480,34 @@ export default {
             margin-left: -18px;
           }
         }
+        // .four_count:hover .four_list {
+        //   transform: translate(0px, -20px);
+        // }
+        // .four_count:hover .img_arrow {
+        //   width: 17.3px;
+        //   height: 8px;
+        //   margin-left: 18px;
+        // }
+        // .four_count:hover .four_list_bottom {
+        //   transition: all 0.2s linear;
+        //   transform: translateX(172px);
+        // }
+        // .four_list_top {
+        //   text-align: center;
+        //   display: flex;
+        //   flex-direction: column;
+        //   align-items: center;
+        //   justify-content: center;
+        // }
+        // .four_count:hover .four_list_top {
+        //   transform: translate(0px, -10px);
+        //   transition: transform 0.1s ease 0.1s;
+        // }
+        // .four_count:hover {
+        //   transform: translateY(-2px);
+        // }
+        .four_count {
+        }
         .four_count:hover .four_list {
           transform: translate(0px, -20px);
         }
@@ -469,6 +515,10 @@ export default {
           width: 17.3px;
           height: 8px;
           margin-left: 18px;
+        }
+        .four_count .four_list_bottom {
+          // 新加
+          transition: all 0.2s linear;
         }
         .four_count:hover .four_list_bottom {
           transition: all 0.2s linear;
@@ -481,7 +531,10 @@ export default {
           align-items: center;
           justify-content: center;
         }
-        .four_list:hover .four_list_top {
+        .four_count .four_list_top {
+          transition: transform 0.1s ease 0.1s;
+        }
+        .four_count:hover .four_list_top {
           transform: translate(0px, -10px);
           transition: transform 0.1s ease 0.1s;
         }
