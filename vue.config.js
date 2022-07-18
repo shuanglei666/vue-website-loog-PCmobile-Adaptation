@@ -1,4 +1,5 @@
 module.exports = {
+    publicPath: './',
     //...其他配置
     css: {
         loaderOptions: {
