@@ -4,3 +4,7 @@ cnpm install amfe-flexible --save
 cnpm install postcss-pxtorem --save
 详解自己博客
 https://blog.csdn.net/m0_49714202/article/details/125560615?spm=1001.2014.3001.5502
+
+注意 如果用npm下载依赖依赖报错的话,就用下面这个
+cnpm install 安装依赖
+cnpm run serve启动
